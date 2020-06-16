@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/ResepTheme">
-        <activity android:name=".ui.AddRecipeActivity"></activity>
-        <activity android:name=".ui.DetailActivity" />
-        <activity android:name=".ui.ShowDataActivity" />
+        <activity android:name=".ui.add_recipe.AddRecipeActivity"></activity>
+        <activity android:name=".ui.detail.DetailActivity" />
+        <activity android:name=".ui.search.ShowDataActivity" />
         <activity
-            android:name=".ui.RegisterActivity"
+            android:name=".ui.register.RegisterActivity"
             android:theme="@style/ResepTheme1" />
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:theme="@style/ResepTheme1" />
         <activity
             android:name=".DashboardActivity"
@@ -26,7 +26,7 @@
             android:name=".MainActivity"
             android:theme="@style/ResepTheme1" />
         <activity
-            android:name=".ui.SplashScreenActivity"
+            android:name=".ui.splashscreen.SplashScreenActivity"
             android:theme="@style/ResepTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

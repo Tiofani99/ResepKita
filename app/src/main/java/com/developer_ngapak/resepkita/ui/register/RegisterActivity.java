@@ -1,4 +1,4 @@
-package com.developer_ngapak.resepkita.ui;
+package com.developer_ngapak.resepkita.ui.register;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.developer_ngapak.resepkita.DashboardActivity;
 import com.developer_ngapak.resepkita.R;
+import com.developer_ngapak.resepkita.ui.login.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;

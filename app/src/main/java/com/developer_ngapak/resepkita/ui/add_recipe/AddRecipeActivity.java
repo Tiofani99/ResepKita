@@ -1,4 +1,4 @@
-package com.developer_ngapak.resepkita.ui;
+package com.developer_ngapak.resepkita.ui.add_recipe;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.developer_ngapak.resepkita.R;
-import com.developer_ngapak.resepkita.model.Food;
+import com.developer_ngapak.resepkita.entity.Food;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -200,7 +200,7 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(AddRecipeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(AddRecipeActivity.this, "gagal apus gambar", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddRecipeActivity.this, "gagal Hapus gambar", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
             }
         });

@@ -8,10 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.developer_ngapak.resepkita.MainActivity;
 import com.developer_ngapak.resepkita.R;
-import com.developer_ngapak.resepkita.model.Category;
-import com.developer_ngapak.resepkita.ui.ShowDataActivity;
+import com.developer_ngapak.resepkita.entity.Category;
+import com.developer_ngapak.resepkita.ui.search.ShowDataActivity;
 
 import java.util.ArrayList;
 

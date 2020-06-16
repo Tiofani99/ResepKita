@@ -11,8 +11,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.developer_ngapak.resepkita.R;
-import com.developer_ngapak.resepkita.model.Food;
-import com.developer_ngapak.resepkita.ui.DetailActivity;
+import com.developer_ngapak.resepkita.entity.Food;
+import com.developer_ngapak.resepkita.ui.detail.DetailActivity;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.developer_ngapak.resepkita.ui;
+package com.developer_ngapak.resepkita.ui.splashscreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;

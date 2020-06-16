@@ -1,4 +1,4 @@
-package com.developer_ngapak.resepkita.ui;
+package com.developer_ngapak.resepkita.ui.login;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.developer_ngapak.resepkita.DashboardActivity;
 import com.developer_ngapak.resepkita.R;
+import com.developer_ngapak.resepkita.ui.register.RegisterActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -101,7 +102,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.tv_register_login:
-                Intent intent = new Intent(this,RegisterActivity.class);
+                Intent intent = new Intent(this, RegisterActivity.class);
                 startActivity(intent);
                 break;
 

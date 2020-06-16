@@ -23,9 +23,9 @@ import com.bumptech.glide.Glide;
 import com.developer_ngapak.resepkita.R;
 import com.developer_ngapak.resepkita.adapter.FireBaseViewHolder;
 import com.developer_ngapak.resepkita.adapter.GridFoodAdapter;
-import com.developer_ngapak.resepkita.model.Food;
-import com.developer_ngapak.resepkita.ui.AddRecipeActivity;
-import com.developer_ngapak.resepkita.ui.DetailActivity;
+import com.developer_ngapak.resepkita.entity.Food;
+import com.developer_ngapak.resepkita.ui.add_recipe.AddRecipeActivity;
+import com.developer_ngapak.resepkita.ui.detail.DetailActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 

@@ -1,4 +1,4 @@
-package com.developer_ngapak.resepkita.ui;
+package com.developer_ngapak.resepkita.ui.search;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.developer_ngapak.resepkita.R;
 import com.developer_ngapak.resepkita.adapter.FireBaseViewHolder;
 import com.developer_ngapak.resepkita.adapter.GridFoodAdapter;
-import com.developer_ngapak.resepkita.model.Food;
+import com.developer_ngapak.resepkita.entity.Food;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;

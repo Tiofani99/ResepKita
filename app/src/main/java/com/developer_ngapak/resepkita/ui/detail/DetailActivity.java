@@ -1,4 +1,4 @@
-package com.developer_ngapak.resepkita.ui;
+package com.developer_ngapak.resepkita.ui.detail;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.developer_ngapak.resepkita.R;
 import com.developer_ngapak.resepkita.adapter.ViewPagerAdapter;
-import com.developer_ngapak.resepkita.model.Food;
 import com.developer_ngapak.resepkita.ui.fragment.description.AlatFragment;
 import com.developer_ngapak.resepkita.ui.fragment.description.Deskripsi;
 import com.developer_ngapak.resepkita.ui.fragment.description.ProsesFragment;

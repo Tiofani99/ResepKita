@@ -3,33 +3,22 @@ package com.developer_ngapak.resepkita.ui.fragment.user;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.bumptech.glide.Glide;
 import com.developer_ngapak.resepkita.MainActivity;
 import com.developer_ngapak.resepkita.R;
-import com.developer_ngapak.resepkita.adapter.FireBaseViewHolder;
-import com.developer_ngapak.resepkita.adapter.GridFoodAdapter;
 import com.developer_ngapak.resepkita.adapter.RecipeUserAdapter;
-import com.developer_ngapak.resepkita.model.Food;
-import com.developer_ngapak.resepkita.model.User;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.developer_ngapak.resepkita.entity.Food;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -37,8 +26,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -111,7 +98,7 @@ public class UserFragment extends Fragment {
                             }
 
                             tvNameUser.setText(username);
-                            Glide.with(Objects.requireNonNull(getActivity()))
+                            Glide.with(requireActivity())
                                     .load(image)
                                     .into(imgUser);
 

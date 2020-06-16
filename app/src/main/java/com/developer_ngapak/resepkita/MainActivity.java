@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.developer_ngapak.resepkita.ui.LoginActivity;
-import com.developer_ngapak.resepkita.ui.RegisterActivity;
+import com.developer_ngapak.resepkita.ui.login.LoginActivity;
+import com.developer_ngapak.resepkita.ui.register.RegisterActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

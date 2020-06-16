@@ -1,4 +1,4 @@
-package com.developer_ngapak.resepkita.model;
+package com.developer_ngapak.resepkita.entity;
 
 public class Category {
     private String name;
