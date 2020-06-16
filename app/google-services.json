@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "202444660577",
+    "firebase_url": "https://resep-kita-2e24c.firebaseio.com",
+    "project_id": "resep-kita-2e24c",
+    "storage_bucket": "resep-kita-2e24c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202444660577:android:bebdb49dc9e0634e8daf20",
+        "android_client_info": {
+          "package_name": "com.developer_ngapak.resepkita"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202444660577-unl07oep7g065s8p1k4ndc41qpqq7gbb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.developer_ngapak.resepkita",
+            "certificate_hash": "a7a96bbe93857d0685a4f78d70429377cded61cb"
+          }
+        },
+        {
+          "client_id": "202444660577-agmqbe0fd9d08unoiqbncag23qll4dm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmlzAUmK5vbXBekZztNTljjHOEfG9WjUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202444660577-agmqbe0fd9d08unoiqbncag23qll4dm1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

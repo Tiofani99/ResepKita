@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:orientation="vertical"
+        android:gravity="center"
+
+        android:padding="10dp">
+
+        <include layout="@layout/title_resep_kita" />
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/text_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_username_register"
+                android:hint="@string/username"
+                android:inputType="text"
+                style="@style/text_input_edittext" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/text_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_fullname_register"
+                android:hint="@string/full_name"
+                android:inputType="text"
+                style="@style/text_input_edittext" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/text_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email_register"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                style="@style/text_input_edittext" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/text_input_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password_register"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                style="@style/text_input_edittext" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_register_register"
+            style="@style/button_style"
+            android:text="@string/register" />
+
+        <TextView
+            android:id="@+id/tv_login_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/already_have_an_account_login" />
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+    tools:context=".ui.LoginActivity">
+
+    <include layout="@layout/title_resep_kita" />
+
+    <com.google.android.material.textfield.TextInputLayout style="@style/text_input_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email_login"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            style="@style/text_input_edittext" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout style="@style/text_input_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password_login"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            style="@style/text_input_edittext" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_login_login"
+        style="@style/button_style"
+        android:text="@string/login" />
+
+    <TextView
+        android:id="@+id/tv_register_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/don_t_have_an_account_register" />
+
+
+</LinearLayout>

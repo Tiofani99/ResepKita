@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddRecipeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark1"
+            android:layout_marginBottom="16dp"
+            android:text="@string/add_recipe" />
+
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_edittext_add_recipe"
+            android:inputType="text"
+            android:hint="@string/food_name" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_toStartOf="@id/spinner_category"
+                android:text="@string/food_category"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinner_category"
+                android:layout_width="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_edittext_add_recipe"
+            android:text="@string/food_category"
+            android:textSize="18sp" />
+
+
+
+        <EditText
+            android:id="@+id/et_detail"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_edittext_add_recipe"
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:scrollbars="vertical"
+            android:gravity="start|bottom"
+            android:hint="@string/food_detail" />
+
+
+        <EditText
+            android:id="@+id/et_ingredient"
+            android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_edittext_add_recipe"
+            android:layout_height="150dp"
+            android:maxLines="10"
+            android:gravity="start|bottom"
+            android:scrollbars="vertical"
+            android:hint="@string/food_ingredient" />
+
+
+        <EditText
+            android:id="@+id/et_recipe"
+            android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_edittext_add_recipe"
+            android:layout_height="150dp"
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:gravity="start|bottom"
+            android:scrollbars="vertical"
+            android:hint="@string/food_recipe" />
+
+
+        <ImageView
+            android:id="@+id/iv_img_upload"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_image_black_24dp" />
+
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="@string/upload" />
+
+
+    </LinearLayout>
+
+</ScrollView>

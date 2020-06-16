@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Resep kita</string>
+    <string name="alat_dan_bahan">Ingredients</string>
+    <string name="deskripsi_makanan">Food Description</string>
+    <string name="prosesnya">Food Recipe</string>
+    <string name="nama_makanan">Food Name</string>
+    <string name="search">search</string>
+    <string name="refresh">refresh</string>
+    <string name="category">Category</string>
+    <string name="resep_kita">Resep Kita</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_user">User</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="full_name">Full Name</string>
+    <string name="username">Username</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="already_have_an_account_login">Already have an account ? Login</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="isi_full">there are still empty</string>
+    <string name="email_pw_eror">Email or password wrong</string>
+    <string name="pw_min_6">The password must not be less than 6</string>
+    <string name="email_error">You can\'t sign in with this email</string>
+    <string name="add">Add</string>
+    <string name="user">User</string>
+    <string name="all_food_recipe">All Food Recipe</string>
+    <string name="find_recipe">Find recipe</string>
+    <string name="exit">Press once again to exit</string>
+    <string name="no_recipe_found">No recipes found</string>
+    <string name="update">Update</string>
+    <string name="update_recipe">Update Recipe</string>
+    <string name="uploading">Uploading…</string>
+    <string name="upload_succes">Upload is successfully</string>
+    <string name="failed">Upload failed</string>
+
+
+    <array name="category_img">
+        <item>@drawable/k_ayam</item>
+        <item>@drawable/k_seafood</item>
+        <item>@drawable/k_soup</item>
+        <item>@drawable/k_sayur</item>
+        <item>@drawable/k_telur</item>
+        <item>@drawable/k_kue</item>
+        <item>@drawable/k_mie</item>
+        <item>@drawable/k_lainnya</item>
+
+    </array>
+    <array name="category_name">
+        <item>Ayam</item>
+        <item>Seafood</item>
+        <item>Soup</item>
+        <item>Sate</item>
+        <item>Telur</item>
+        <item>Kue</item>
+        <item>Mie</item>
+        <item>Lainnya</item>
+
+    </array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logout">Logout</string>
+    <string name="nama">Name</string>
+    <string name="my_recipe">My Recipe</string>
+    <string name="add_recipe">Add Recipe</string>
+    <string name="food_name">Food Name</string>
+    <string name="food_category">Food Category</string>
+    <string name="food_detail">Food Detail</string>
+    <string name="food_ingredient">Food Ingredient</string>
+    <string name="food_recipe">Food Recipe</string>
+    <string name="upload">Upload</string>
+    <string name="you_have_not_made_a_recipe_yet">You have not made a recipe yet</string>
+    <string name="delete">Delete</string>
+    <string name="delete_message">Are you sure you want to delete the recipe?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="delete_success">Recipe successfully deleted</string>
+    <string name="data_required">This field is cannot be empty</string>
+</resources>

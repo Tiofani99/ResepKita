@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="32dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resep_kita"
+            android:textColor="@color/colorPrimaryDark1"
+            android:textStyle="bold"
+            android:textSize="37sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/btn_login_start"
+        style="@style/button_style"
+        android:text="@string/login" />
+
+    <Button
+        android:id="@+id/btn_register_start"
+        style="@style/button_style"
+        android:text="@string/register" />
+
+</LinearLayout>

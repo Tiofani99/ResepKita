@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:elevation="3dp"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <LinearLayout
+        android:id="@+id/framelayout"
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_item_photo"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="1dp"
+            android:scaleType="centerCrop"
+            tools:src="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/tv_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/nama_makanan"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimaryDark1"
+            android:padding="0dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="bottom" />
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
