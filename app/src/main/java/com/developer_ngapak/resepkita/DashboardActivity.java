@@ -1,21 +1,16 @@
 package com.developer_ngapak.resepkita;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.solver.widgets.Helper;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class DashboardActivity extends AppCompatActivity {
-
-    private long backPressedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,24 +28,5 @@ public class DashboardActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
     }
-
-
-
-
-//    @Override
-//    public void onBackPressed() {
-//        if(backPressedTime + 2000 > System.currentTimeMillis() ){
-//            super.onBackPressed();
-//            //onDestroy();
-//            return;
-//        }else{
-//            String msg = getResources().getString(R.string.exit);
-//            Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
-//        }
-//        backPressedTime = System.currentTimeMillis();
-//    }
-
-
-
 
 }
