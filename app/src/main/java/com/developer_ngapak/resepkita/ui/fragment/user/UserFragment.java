@@ -8,12 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.developer_ngapak.resepkita.MainActivity;
 import com.developer_ngapak.resepkita.R;
@@ -31,32 +25,38 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class UserFragment extends Fragment {
 
 
     private FirebaseAuth mAuth;
-    private TextView btnLogout;
-    private FirebaseUser user;
-    private DatabaseReference mDatabase;
-    private RecyclerView rvFood;
-    private TextView tvNameUser;
-    private ImageView imgUser;
-    private String username, image;
-    private TextView tvNoData;
 
-
-    private ArrayList<Food> list = new ArrayList<>();
+    @BindView(R.id.tv_logout)
+    TextView btnLogout;
+    @BindView(R.id.rv_food)
+    RecyclerView rvFood;
+    @BindView(R.id.tv_name_user)
+    TextView tvNameUser;
+    @BindView(R.id.image_profile)
+    ImageView imgUser;
+    @BindView(R.id.tv_no_post)
+    TextView tvNoData;
+    private String username;
+    private String image;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
         View root = inflater.inflate(R.layout.fragment_user, container, false);
+        ButterKnife.bind(this,root);
+
         mAuth = FirebaseAuth.getInstance();
-        user = mAuth.getCurrentUser();
-        rvFood = root.findViewById(R.id.rv_food);
-        tvNameUser = root.findViewById(R.id.tv_name_user);
-        imgUser = root.findViewById(R.id.image_profile);
-        tvNoData = root.findViewById(R.id.tv_no_post);
+        FirebaseUser user = mAuth.getCurrentUser();
 
         assert user != null;
         String id = user.getUid();
@@ -64,19 +64,16 @@ public class UserFragment extends Fragment {
         ShowDataUser(id);
 
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(id);
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(id);
         mDatabase.keepSynced(true);
 
 
         btnLogout = root.findViewById(R.id.tv_logout);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
+        btnLogout.setOnClickListener(view -> {
+            mAuth.signOut();
+            Intent intent = new Intent(getContext(), MainActivity.class);
+            startActivity(intent);
+            getActivity().finish();
         });
 
 
@@ -101,11 +98,7 @@ public class UserFragment extends Fragment {
                             Glide.with(requireActivity())
                                     .load(image)
                                     .into(imgUser);
-
-
                         }
-
-
                     }
 
                     @Override
@@ -135,7 +128,7 @@ public class UserFragment extends Fragment {
 
                         tvNoData.setVisibility(getView().GONE);
                         Collections.reverse(myList);
-                        RecipeUserAdapter cardViewAdapter = new RecipeUserAdapter(getActivity(),myList);
+                        RecipeUserAdapter cardViewAdapter = new RecipeUserAdapter(getActivity(), myList);
                         rvFood.setLayoutManager(new GridLayoutManager(getActivity(), 3, LinearLayoutManager.VERTICAL, true));
                         rvFood.setAdapter(cardViewAdapter);
                     }
