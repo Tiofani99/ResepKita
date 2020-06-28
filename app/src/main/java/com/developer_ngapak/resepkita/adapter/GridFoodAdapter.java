@@ -18,19 +18,15 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class GridFoodAdapter extends RecyclerView.Adapter<GridFoodAdapter.GridViewHolder> {
 
     private ArrayList<Food> listFood;
-    private Context mContext;
 
-    public GridFoodAdapter(ArrayList<Food> list){
+    public GridFoodAdapter(ArrayList<Food> list) {
         this.listFood = list;
-    }
-
-    public GridFoodAdapter(Context mContext, ArrayList<Food> listFood){
-        this.mContext = mContext;
-        this.listFood = listFood;
     }
 
     @NonNull
@@ -43,28 +39,7 @@ public class GridFoodAdapter extends RecyclerView.Adapter<GridFoodAdapter.GridVi
     @Override
     public void onBindViewHolder(@NonNull final GridFoodAdapter.GridViewHolder holder, int position) {
         final Food food = listFood.get(position);
-
-        Glide.with(holder.itemView.getContext())
-                .load(listFood.get(position).getImg())
-                .apply(new RequestOptions().override(350, 550))
-                .into(holder.imgPhoto);
-        holder.nameFood.setText(food.getName());
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context context = v.getContext();
-                Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra(DetailActivity.EXTRA_NAME,food.getName());
-                intent.putExtra(DetailActivity.EXTRA_IMAGE,food.getImg());
-                intent.putExtra(DetailActivity.EXTRA_PROCESS,food.getRecipe());
-                intent.putExtra(DetailActivity.EXTRA_DESC,food.getDetail());
-                intent.putExtra(DetailActivity.EXTRA_ALAT,food.getIngredient());
-
-                context.startActivity(intent);
-            }
-        });
-
+        holder.bind(food);
     }
 
     @Override
@@ -72,16 +47,35 @@ public class GridFoodAdapter extends RecyclerView.Adapter<GridFoodAdapter.GridVi
         return listFood.size();
     }
 
-    public class GridViewHolder extends RecyclerView.ViewHolder {
+    public class GridViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        @BindView(R.id.img_item_photo)
         ImageView imgPhoto;
+        @BindView(R.id.tv_item_name)
         TextView nameFood;
-
 
         public GridViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgPhoto = itemView.findViewById(R.id.img_item_photo);
-            nameFood = itemView.findViewById(R.id.tv_item_name);
+            ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        void bind(Food food) {
+            Glide.with(itemView.getContext())
+                    .load(food.getImg())
+                    .apply(new RequestOptions().override(350, 550))
+                    .into(imgPhoto);
+            nameFood.setText(food.getName());
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            Food food = listFood.get(position);
+            Context context = view.getContext();
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra(DetailActivity.EXTRA_RECIPE, food);
+            context.startActivity(intent);
         }
     }
 }

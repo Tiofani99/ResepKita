@@ -1,8 +1,5 @@
 package com.developer_ngapak.resepkita.ui.detail;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,43 +9,47 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.developer_ngapak.resepkita.R;
 import com.developer_ngapak.resepkita.adapter.ViewPagerAdapter;
+import com.developer_ngapak.resepkita.entity.Food;
 import com.developer_ngapak.resepkita.ui.fragment.description.AlatFragment;
 import com.developer_ngapak.resepkita.ui.fragment.description.Deskripsi;
 import com.developer_ngapak.resepkita.ui.fragment.description.ProsesFragment;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class DetailActivity extends AppCompatActivity {
 
-    private ImageView ivDetailMakanan;
-    private TextView tvDetail;
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+    public static final String EXTRA_RECIPE = "food";
+    @BindView(R.id.iv_FotodetailMakanan)
+    ImageView ivFoodDetail;
+    @BindView(R.id.tv_item_detail)
+    TextView tvDetail;
+    @BindView(R.id.tabMode)
+    TabLayout tabLayout;
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
 
-
-    private String tittle;
-    public static final String EXTRA_NAME = "nama makanan";
-    public static final String EXTRA_ALAT = "alat dan bahan";
-    public static final String EXTRA_DESC = "deskripsi makanan";
-    public static final String EXTRA_PROCESS = "resepnya";
-    public static final String EXTRA_IMAGE = "0";
-
-    private String nama, alat, desc, proses,img;
+    private String foodName;
+    private String foodIngredients;
+    private String foodDesc;
+    private String foodProcess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-        tvDetail = findViewById(R.id.tv_item_detail);
-        ivDetailMakanan = findViewById(R.id.iv_FotodetailMakanan);
-        tabLayout = findViewById(R.id.tabMode);
-        viewPager = findViewById(R.id.viewPager);
+        ButterKnife.bind(this);
 
         getData();
-        setTittle(nama);
-        tvDetail.setText(desc);
+        setTittle(foodName);
+        tvDetail.setText(foodDesc);
+        setDetail();
+    }
 
-
+    private void setDetail() {
         final ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         //Menambahkan fragment
         adapter.addFragment(new Deskripsi(), "Deskripsi");
@@ -66,17 +67,17 @@ public class DetailActivity extends AppCompatActivity {
                     case 0:
                         tabLayout.getTabAt(0);
                         tvDetail.setText(" ");
-                        tvDetail.setText(desc);
+                        tvDetail.setText(foodDesc);
                         break;
                     case 1:
                         tabLayout.getTabAt(1);
                         tvDetail.setText(" ");
-                        tvDetail.setText(alat);
+                        tvDetail.setText(foodIngredients);
                         break;
                     case 2:
                         tabLayout.getTabAt(2);
                         tvDetail.setText(" ");
-                        tvDetail.setText(proses);
+                        tvDetail.setText(foodProcess);
                         break;
                 }
             }
@@ -108,18 +109,17 @@ public class DetailActivity extends AppCompatActivity {
         }
     }
 
-
-
-
     private void getData() {
-        nama = getIntent().getStringExtra(EXTRA_NAME);
-        desc = getIntent().getStringExtra(EXTRA_DESC);
-        alat = getIntent().getStringExtra(EXTRA_ALAT);
-        proses = getIntent().getStringExtra(EXTRA_PROCESS);
-        img = getIntent().getStringExtra(EXTRA_IMAGE);
+        Food foodDetail = getIntent().getParcelableExtra(EXTRA_RECIPE);
+        assert foodDetail != null;
+        foodName = foodDetail.getName();
+        foodDesc = foodDetail.getDetail();
+        foodIngredients = foodDetail.getIngredient();
+        foodProcess = foodDetail.getRecipe();
+        String img = foodDetail.getImg();
 
         Glide.with(this)
                 .load(img)
-                .into(ivDetailMakanan);
+                .into(ivFoodDetail);
     }
 }
