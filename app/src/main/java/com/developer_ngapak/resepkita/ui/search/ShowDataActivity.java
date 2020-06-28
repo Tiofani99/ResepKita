@@ -1,11 +1,5 @@
 package com.developer_ngapak.resepkita.ui.search;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
@@ -19,7 +13,6 @@ import com.developer_ngapak.resepkita.adapter.FireBaseViewHolder;
 import com.developer_ngapak.resepkita.adapter.GridFoodAdapter;
 import com.developer_ngapak.resepkita.entity.Food;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,42 +21,47 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class ShowDataActivity extends AppCompatActivity {
 
-    private RecyclerView rvFood;
     private ArrayList<Food> list = new ArrayList<>();
-    private FirebaseRecyclerOptions<Food> options;
     private FirebaseRecyclerAdapter<Food, FireBaseViewHolder> adapter;
-    private DatabaseReference databaseReference;
-    private TextView tvNoData;
+
+    @BindView(R.id.rv_food)
+    RecyclerView rvFood;
+    @BindView(R.id.tv_noData)
+    TextView tvNoData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_data);
+        ButterKnife.bind(this);
 
-        rvFood = findViewById(R.id.rv_food);
-        tvNoData = findViewById(R.id.tv_noData);
-        //rvFood.setHasFixedSize(true);
-
-
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Data");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Data");
         databaseReference.keepSynced(true);
         //showData();
         String category = getIntent().getStringExtra("category");
         String search = getIntent().getStringExtra("search");
 
-        if(category != null){
-            setActionBarTitle("Kategori "+category);
+        if (category != null) {
+            setActionBarTitle("Kategori " + category);
             showCategory(category);
-        }else{
-            setActionBarTitle("'"+search+"'");
+        } else {
+            setActionBarTitle("'" + search + "'");
             searchData(search);
         }
     }
 
-    private void setActionBarTitle(String title){
-        if(getSupportActionBar()!=null){
+    private void setActionBarTitle(String title) {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(title);
         }
@@ -74,7 +72,7 @@ public class ShowDataActivity extends AppCompatActivity {
         DatabaseReference mRef = FirebaseDatabase.getInstance().getReference("Data");
         mRef.orderByChild("search")
                 .startAt(str)
-                .endAt(str+"\uf8ff")
+                .endAt(str + "\uf8ff")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -87,7 +85,7 @@ public class ShowDataActivity extends AppCompatActivity {
                             GridFoodAdapter gridFoodAdapter = new GridFoodAdapter(myList);
                             rvFood.setLayoutManager(new GridLayoutManager(ShowDataActivity.this, 2));
                             rvFood.setAdapter(gridFoodAdapter);
-                        }else{
+                        } else {
                             myList.clear();
                             GridFoodAdapter gridFoodAdapter = new GridFoodAdapter(myList);
                             rvFood.setLayoutManager(new GridLayoutManager(ShowDataActivity.this, 2));
@@ -121,7 +119,7 @@ public class ShowDataActivity extends AppCompatActivity {
 
                             GridFoodAdapter gridFoodAdapter = new GridFoodAdapter(list);
                             rvFood.setAdapter(gridFoodAdapter);
-                        }else{
+                        } else {
                             String msg = getResources().getString(R.string.no_recipe_found);
                             tvNoData.setText(msg);
                         }
@@ -181,7 +179,7 @@ public class ShowDataActivity extends AppCompatActivity {
                 public boolean onQueryTextSubmit(String query) {
                     //Toast.makeText(MainActivity.this,query,Toast.LENGTH_SHORT).show();
                     searchData(query);
-                    setActionBarTitle("'"+query+"'");
+                    setActionBarTitle("'" + query + "'");
                     return false;
                 }
 
@@ -191,8 +189,6 @@ public class ShowDataActivity extends AppCompatActivity {
                     return false;
                 }
             });
-        } else {
-            //showData();
         }
 
 

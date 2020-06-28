@@ -16,39 +16,28 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.GridViewHolder> {
 
-    ArrayList<Category> list;
+    private ArrayList<Category> list;
 
-    public CategoryAdapter(ArrayList<Category> list){
+    public CategoryAdapter(ArrayList<Category> list) {
         this.list = list;
     }
 
     @NonNull
     @Override
     public CategoryAdapter.GridViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_category,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_category, parent, false);
         return new GridViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final CategoryAdapter.GridViewHolder holder, int position) {
         final Category category = list.get(position);
-        holder.title.setText(category.getName());
-        Glide.with(holder.itemView.getContext())
-                .load(list.get(position).getImg())
-                .into(holder.img);
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String c = category.getName();
-                Intent intent = new Intent(holder.itemView.getContext(), ShowDataActivity.class);
-                intent.putExtra("category",c);
-                holder.itemView.getContext().startActivity(intent);
-            }
-        });
+        holder.bind(category);
     }
 
     @Override
@@ -56,16 +45,33 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.GridVi
         return list.size();
     }
 
-    public class GridViewHolder extends RecyclerView.ViewHolder {
-
+    public class GridViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        @BindView(R.id.categoryName)
         TextView title;
+        @BindView(R.id.categoryThumb)
         ImageView img;
 
         public GridViewHolder(@NonNull View itemView) {
             super(itemView);
+            ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
+        }
 
-            title = itemView.findViewById(R.id.categoryName);
-            img = itemView.findViewById(R.id.categoryThumb);
+        public void bind(Category category) {
+            title.setText(category.getName());
+            Glide.with(itemView.getContext())
+                    .load(category.getImg())
+                    .into(img);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            Category category = list.get(position);
+            String c = category.getName();
+            Intent intent = new Intent(itemView.getContext(), ShowDataActivity.class);
+            intent.putExtra("category", c);
+            itemView.getContext().startActivity(intent);
         }
     }
 }
