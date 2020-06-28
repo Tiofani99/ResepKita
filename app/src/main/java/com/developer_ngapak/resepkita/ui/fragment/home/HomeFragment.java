@@ -121,13 +121,10 @@ public class HomeFragment extends Fragment {
 
     private void refreshData() {
         swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorPrimary1), getResources().getColor(R.color.colorPrimaryDark1));
-        swipeRefreshLayout.setOnRefreshListener(() -> new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        swipeRefreshLayout.setRefreshing(false);
-                        showData();
-                    }
-                }, 2000)
+        swipeRefreshLayout.setOnRefreshListener(() -> new Handler().postDelayed(() -> {
+            swipeRefreshLayout.setRefreshing(false);
+            showData();
+        }, 2000)
         );
     }
 
