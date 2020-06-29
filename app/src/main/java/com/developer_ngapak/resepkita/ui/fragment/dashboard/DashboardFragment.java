@@ -15,6 +15,7 @@ import com.developer_ngapak.resepkita.adapter.GridFoodAdapter;
 import com.developer_ngapak.resepkita.entity.Food;
 import com.developer_ngapak.resepkita.ui.add_recipe.AddRecipeActivity;
 import com.developer_ngapak.resepkita.ui.detail.DetailActivity;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -33,27 +34,33 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class DashboardFragment extends Fragment {
 
-    private RecyclerView rvFood;
+    @BindView(R.id.shimmerFrameLayout)
+    ShimmerFrameLayout shimmerFrameLayout;
+    @BindView(R.id.rvFood)
+    RecyclerView rvFood;
+    @BindView(R.id.swLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
     private DatabaseReference databaseReference;
 
-    private SwipeRefreshLayout swipeRefreshLayout;
+
     private FirebaseRecyclerOptions<Food> options;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         final View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        ButterKnife.bind(this,root);
         FloatingActionButton btnAdd = root.findViewById(R.id.fab);
         btnAdd.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), AddRecipeActivity.class);
             startActivity(intent);
         });
-        swipeRefreshLayout = root.findViewById(R.id.swLayout);
 
-        rvFood = root.findViewById(R.id.rvFood);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Data_by_User");
         databaseReference.keepSynced(true);
         showData();
@@ -79,6 +86,7 @@ public class DashboardFragment extends Fragment {
 
 
     private void showData() {
+        showLoading(true);
         options = new FirebaseRecyclerOptions.Builder<Food>().setQuery(databaseReference, Food.class).build();
 
         FirebaseRecyclerAdapter<Food, FireBaseViewHolder> adapter = new FirebaseRecyclerAdapter<Food, FireBaseViewHolder>(options) {
@@ -112,7 +120,18 @@ public class DashboardFragment extends Fragment {
         rvFood.setLayoutManager(gridLayoutManager);
         rvFood.setAdapter(adapter);
         adapter.startListening();
+        showLoading(false);
 
+    }
+
+    private void showLoading(Boolean state) {
+        if (state) {
+            shimmerFrameLayout.setVisibility(View.VISIBLE);
+            shimmerFrameLayout.startShimmer();
+        } else {
+            shimmerFrameLayout.stopShimmer();
+            shimmerFrameLayout.setVisibility(View.GONE);
+        }
     }
 
 

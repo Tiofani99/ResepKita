@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
 import com.developer_ngapak.resepkita.R;
@@ -16,6 +17,7 @@ import com.developer_ngapak.resepkita.entity.Category;
 import com.developer_ngapak.resepkita.entity.Food;
 import com.developer_ngapak.resepkita.ui.detail.DetailActivity;
 import com.developer_ngapak.resepkita.ui.search.ShowDataActivity;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
@@ -42,6 +44,8 @@ public class HomeFragment extends Fragment {
     SearchView searchView;
     @BindView(R.id.swLayout)
     SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.shimmerFrameLayout)
+    ProgressBar shimmerFrameLayout;
 
     private FirebaseRecyclerOptions<Food> options;
     private DatabaseReference databaseReference;
@@ -81,6 +85,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void showData() {
+        showLoading(true);
         options = new FirebaseRecyclerOptions.Builder<Food>().setQuery(databaseReference, Food.class).build();
 
         FirebaseRecyclerAdapter<Food, FireBaseViewHolder> adapter = new FirebaseRecyclerAdapter<Food, FireBaseViewHolder>(options) {
@@ -111,6 +116,7 @@ public class HomeFragment extends Fragment {
         rvFood.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rvFood.setAdapter(adapter);
         adapter.startListening();
+        showLoading(false);
     }
 
     private void showCategory() {
@@ -142,6 +148,14 @@ public class HomeFragment extends Fragment {
 
         return listData;
 
+    }
+
+    private void showLoading(Boolean state) {
+        if (state) {
+            shimmerFrameLayout.setVisibility(View.VISIBLE);
+        } else {
+            shimmerFrameLayout.setVisibility(View.GONE);
+        }
     }
 
 }

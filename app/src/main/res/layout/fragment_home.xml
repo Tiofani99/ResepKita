@@ -105,6 +105,13 @@
                     android:layout_below="@id/recyclerCategory"
                     android:text="@string/all_food_recipe" />
 
+                <ProgressBar
+                    android:id="@+id/shimmerFrameLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_example"
+                    android:layout_centerHorizontal="true" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_food_dashboard"
                     android:layout_width="match_parent"

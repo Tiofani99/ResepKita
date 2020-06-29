@@ -13,4 +13,5 @@
     <color name="tabindicatorColor">#E3C8AA</color>
     <color name="textColorFragment">#707070</color>
     <color name="colorBlue">#4e86e6</color>
+    <color name="colorShimmer">#DFDFDF</color>
 </resources>
