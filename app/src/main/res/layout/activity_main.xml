@@ -8,12 +8,11 @@
     tools:context=".MainActivity">
 
 
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="32dp">
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="50dp"
@@ -23,15 +22,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/resep_kita"
             android:textColor="@color/colorPrimaryDark1"
-            android:textStyle="bold"
             android:textSize="37sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="16dp"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
-
 
 
     <Button
@@ -43,5 +41,13 @@
         android:id="@+id/btn_register_start"
         style="@style/button_style"
         android:text="@string/register" />
+
+    <TextView
+        android:id="@+id/tv_about_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_gravity="center"
+        android:text="About us"/>
 
 </LinearLayout>
