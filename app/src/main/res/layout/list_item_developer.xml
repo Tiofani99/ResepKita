@@ -3,39 +3,65 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="16dp"
     android:clickable="true"
     android:padding="8dp"
+    android:elevation="3dp"
     android:foreground="?android:attr/selectableItemBackground"
+    android:layout_margin="4dp"
     android:focusable="true">
 
-    <RelativeLayout
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <de.hdodenhof.circleimageview.CircleImageView-->
+<!--            android:id="@+id/civ_image_photo_developer"-->
+<!--            android:layout_width="75dp"-->
+<!--            android:layout_height="75dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:layout_marginStart="16dp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_name_developer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toEndOf="@id/civ_image_photo_developer"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:text="@string/app_name"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="20sp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_nim_developer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/tv_name_developer"-->
+<!--            android:layout_toEndOf="@id/civ_image_photo_developer"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:textSize="16sp"/>-->
+
+<!--    </RelativeLayout>-->
+
+    <LinearLayout
+        android:id="@+id/framelayout"
         android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
         android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/civ_image_photo_developer"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/colorPrimary1"/>
-
-        <TextView
-            android:id="@+id/tv_name_developer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/civ_image_photo_developer"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:text="@string/app_name"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:layout_height="150dp"
+            android:layout_margin="1dp"
+            android:scaleType="centerCrop" />
 
-
-
-    </RelativeLayout>
-
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
