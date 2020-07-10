@@ -57,4 +57,8 @@
     <string name="no">Tidak</string>
     <string name="delete_success">Resep berhasil dihapus</string>
     <string name="data_required">Tidak boleh kosong</string>
+    <string name="social_media">Media Sosial</string>
+    <string name="address">Alamat</string>
+    <string name="hobby">Hobi</string>
+    <string name="quotes">Kata Mutiara</string>
 </resources>

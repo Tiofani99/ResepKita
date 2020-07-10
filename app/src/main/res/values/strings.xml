@@ -59,8 +59,65 @@
         <item>Kue</item>
         <item>Mie</item>
         <item>Lainnya</item>
-
     </array>
+
+    <string-array name="developer_name">
+        <item>Tio Fani</item>
+        <item>Firman Galuh Sembodo</item>
+        <item>Yudi Zidane Rahman</item>
+        <item>Morleedia Adi Yahya</item>
+    </string-array>
+
+    <array name="developer_photos">
+        <item>@drawable/profil_tio</item>
+        <item>@drawable/profil_firman</item>
+        <item>@drawable/profil_yudi</item>
+        <item>@drawable/profil_morlee</item>
+    </array>
+
+    <string-array name="developer_nim">
+        <item>17104016</item>
+        <item>17104007</item>
+        <item>17104018</item>
+        <item>17104028</item>
+    </string-array>
+
+    <string-array name="developer_quotes">
+        <item>Makan untuk hidup bukan hidup untuk makan</item>
+        <item>Time is money</item>
+        <item>Bual-bual dahulu blablabla kemudian</item>
+        <item>Can because ordinary… \nOrdinary because forced…  </item>
+    </string-array>
+
+    <string-array name="developer_github">
+        <item>tiofani99</item>
+        <item>firmangaluhs</item>
+        <item>Yudizidane</item>
+        <item>morleediaadiyahya</item>
+    </string-array>
+
+    <string-array name="developer_ig">
+        <item>tio.fani</item>
+        <item>firmangaluh_s</item>
+        <item>yudizidane</item>
+        <item>morlee_day</item>
+    </string-array>
+
+    <string-array name="developer_hobbies">
+        <item>Badminton</item>
+        <item>Nglobi Senjata</item>
+        <item>Bual-bual</item>
+        <item>Sing</item>
+    </string-array>
+
+    <string-array name="developer_address">
+        <item>Purwokerto</item>
+        <item>Wangon</item>
+        <item>Pontianak</item>
+        <item>Nomaden</item>
+    </string-array>
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -81,4 +138,8 @@
     <string name="no">No</string>
     <string name="delete_success">Recipe successfully deleted</string>
     <string name="data_required">This field is cannot be empty</string>
+    <string name="social_media">Social Media</string>
+    <string name="address">Address</string>
+    <string name="hobby">Hobby</string>
+    <string name="quotes">Quotes</string>
 </resources>
