@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -72,8 +73,6 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
     Button btnUpload;
     @BindView(R.id.tv_title)
     TextView tvTitle;
-    @BindView(R.id.tv_category)
-    TextView tvCategory;
     @BindView(R.id.spinner_category)
     Spinner spinner;
 
@@ -85,6 +84,7 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
     String uploading;
     String success;
     String failed;
+    String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +123,6 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
             assert food != null;
             etName.setText(food.getName());
             etDetail.setText(food.getDetail());
-            tvCategory.setText(food.getCategory());
             etIngredient.setText(food.getIngredient());
             etRecipe.setText(food.getRecipe());
 
@@ -145,8 +144,8 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String category = adapterView.getItemAtPosition(i).toString();
-                tvCategory.setText(category);
+                category = adapterView.getItemAtPosition(i).toString();
+                Log.d("Coba","Kategori : "+category);
             }
 
             @Override
@@ -235,7 +234,6 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
 
     private void updateDatabase(final String s) {
         final String name = etName.getText().toString();
-        final String category = tvCategory.getText().toString();
         final String detail = etDetail.getText().toString();
         final String ingredient = etIngredient.getText().toString();
         final String recipe = etRecipe.getText().toString();
@@ -288,7 +286,7 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
 
 
                             String mName = etName.getText().toString().trim();
-                            String mCategory = tvCategory.getText().toString().trim();
+                            String mCategory = category;
                             String mDetail = etDetail.getText().toString().trim();
                             String mIngredient = etIngredient.getText().toString().trim();
                             String mRecipe = etRecipe.getText().toString().trim();

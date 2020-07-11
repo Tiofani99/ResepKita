@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/colorPrimaryDark2"
+            android:textColor="@color/colorAccent2"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -46,7 +46,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginRight="8dp"
             android:padding="4dp"
-            app:cardBackgroundColor="@color/colorPrimaryDark2"
+            app:cardBackgroundColor="@color/colorAccent2"
             app:cardCornerRadius="8dp">
 
             <LinearLayout
@@ -118,7 +118,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="32dp"
             android:padding="4dp"
-            app:cardBackgroundColor="@color/colorPrimaryDark2"
+            app:cardBackgroundColor="@color/colorAccent2"
             app:cardCornerRadius="8dp">
 
             <LinearLayout

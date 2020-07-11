@@ -8,9 +8,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="24dp"
         android:orientation="vertical">
 
         <TextView
@@ -18,92 +18,149 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark1"
             android:layout_marginBottom="16dp"
-            android:text="@string/add_recipe" />
+            android:text="@string/add_recipe"
+            android:textColor="@color/colorPrimaryDark1"
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
-
-        <EditText
-            android:id="@+id/et_name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/background_edittext_add_recipe"
-            android:inputType="text"
-            android:hint="@string/food_name" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_toStartOf="@id/spinner_category"
+                android:layout_marginBottom="12dp"
+                android:text="@string/food_name"
+                android:textColor="@color/colorAccent2"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input_edit"
+                android:inputType="text"
+                android:lines="1"
+                android:paddingStart="12dp"
+                android:textColor="@android:color/black"
+                tools:ignore="RtlSymmetry" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:text="@string/food_category"
-                android:textSize="18sp" />
+                android:textColor="@color/colorAccent2"
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/spinner_category"
-                android:layout_width="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_height="wrap_content" />
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_input_edit"
+                />
+        </LinearLayout>
 
-        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_category"
-            android:layout_marginTop="16dp"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_edittext_add_recipe"
-            android:text="@string/food_category"
-            android:textSize="18sp" />
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/food_detail"
+                android:textColor="@color/colorAccent2"
+                android:textSize="20sp" />
 
 
+            <EditText
+                android:id="@+id/et_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_edit"
+                android:inputType="textMultiLine"
+                android:nestedScrollingEnabled="true"
+                android:padding="16dp"
+                android:paddingStart="12dp"
+                tools:ignore="RtlSymmetry,TextFields" />
 
-        <EditText
-            android:id="@+id/et_detail"
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/background_edittext_add_recipe"
-            android:inputType="textMultiLine"
-            android:maxLines="10"
-            android:scrollbars="vertical"
-            android:gravity="start|bottom"
-            android:hint="@string/food_detail" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/food_ingredient"
+                android:textColor="@color/colorAccent2"
+                android:textSize="20sp" />
 
 
-        <EditText
-            android:id="@+id/et_ingredient"
+            <EditText
+                android:id="@+id/et_ingredient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_edit"
+                android:inputType="textMultiLine"
+                android:nestedScrollingEnabled="true"
+                android:padding="16dp"
+                android:paddingStart="12dp"
+                tools:ignore="RtlSymmetry,TextFields" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/background_edittext_add_recipe"
-            android:layout_height="150dp"
-            android:maxLines="10"
-            android:gravity="start|bottom"
-            android:scrollbars="vertical"
-            android:hint="@string/food_ingredient" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/food_recipe"
+                android:textColor="@color/colorAccent2"
+                android:textSize="20sp" />
 
 
-        <EditText
-            android:id="@+id/et_recipe"
-            android:layout_width="match_parent"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/background_edittext_add_recipe"
-            android:layout_height="150dp"
-            android:inputType="textMultiLine"
-            android:maxLines="10"
-            android:gravity="start|bottom"
-            android:scrollbars="vertical"
-            android:hint="@string/food_recipe" />
+            <EditText
+                android:id="@+id/et_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_edit"
+                android:inputType="textMultiLine"
+                android:nestedScrollingEnabled="true"
+                android:padding="16dp"
+                android:paddingStart="12dp"
+                tools:ignore="RtlSymmetry,TextFields" />
 
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/iv_img_upload"
@@ -114,12 +171,12 @@
 
         <Button
             android:id="@+id/btn_upload"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="32dp"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:text="@string/upload" />
 
 

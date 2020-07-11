@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/ResepTheme">
-        <activity android:name=".ui.about.DeveloperDetail"></activity>
-        <activity android:name=".ui.about.AboutUsActivity"/>
+        <activity android:name=".ui.about.DeveloperDetail"
+            android:theme="@style/ResepDashboard1"/>
+        <activity android:name=".ui.about.AboutUsActivity"
+            android:theme="@style/ResepDashboard1" />
         <activity android:name=".ui.add_recipe.AddRecipeActivity" />
         <activity android:name=".ui.detail.DetailActivity" />
         <activity android:name=".ui.search.ShowDataActivity" />
