@@ -61,4 +61,5 @@
     <string name="address">Alamat</string>
     <string name="hobby">Hobi</string>
     <string name="quotes">Kata Mutiara</string>
+    <string name="about_developer">Tentang Pengembang</string>
 </resources>

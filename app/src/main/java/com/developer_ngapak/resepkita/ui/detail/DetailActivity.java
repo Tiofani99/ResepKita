@@ -52,9 +52,9 @@ public class DetailActivity extends AppCompatActivity {
     private void setDetail() {
         final ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         //Menambahkan fragment
-        adapter.addFragment(new Deskripsi(), "Deskripsi");
-        adapter.addFragment(new AlatFragment(), "Alat dan bahan");
-        adapter.addFragment(new ProsesFragment(), "Cara Membuat");
+        adapter.addFragment(new Deskripsi(), getResources().getString(R.string.deskripsi_makanan));
+        adapter.addFragment(new AlatFragment(), getResources().getString(R.string.alat_dan_bahan));
+        adapter.addFragment(new ProsesFragment(), getResources().getString(R.string.food_recipe));
 
         viewPager.setAdapter(adapter);
         tabLayout.setTabTextColors(Color.BLACK, Color.WHITE);

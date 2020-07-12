@@ -8,6 +8,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.developer_ngapak.resepkita.R;
 import com.developer_ngapak.resepkita.adapter.FireBaseViewHolder;
 import com.developer_ngapak.resepkita.adapter.GridFoodAdapter;
@@ -21,11 +27,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -52,7 +53,7 @@ public class ShowDataActivity extends AppCompatActivity {
         String search = getIntent().getStringExtra("search");
 
         if (category != null) {
-            setActionBarTitle("Kategori " + category);
+            setActionBarTitle(getResources().getString(R.string.category)+" "+ category);
             showCategory(category);
         } else {
             setActionBarTitle("'" + search + "'");
@@ -173,7 +174,7 @@ public class ShowDataActivity extends AppCompatActivity {
         if (searchManager != null) {
             SearchView searchView = (SearchView) (menu.findItem(R.id.search)).getActionView();
             searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-            searchView.setQueryHint("Nama makanan");
+            searchView.setQueryHint(getResources().getString(R.string.food_name));
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {

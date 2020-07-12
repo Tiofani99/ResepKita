@@ -80,7 +80,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
     private void initTitle() {
         if(getSupportActionBar()!= null){
-            getSupportActionBar().setTitle(getResources().getString(R.string.project_id));
+            getSupportActionBar().setTitle(getResources().getString(R.string.about_developer));
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }

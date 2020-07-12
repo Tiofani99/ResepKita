@@ -98,6 +98,7 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
         success = getResources().getString(R.string.upload_succes);
         failed = getResources().getString(R.string.failed);
 
+
         String msgAddRecipe = getResources().getString(R.string.add_recipe);
         tvTitle.setText(msgAddRecipe);
         setTitle(msgAddRecipe);
@@ -121,10 +122,13 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
         if (intent != null) {
             Food food = intent.getParcelable(EXTRA_RECIPE);
             assert food != null;
+            cTitle = food.getName();
+            cImage = food.getImg();
             etName.setText(food.getName());
             etDetail.setText(food.getDetail());
             etIngredient.setText(food.getIngredient());
             etRecipe.setText(food.getRecipe());
+            Log.d("Coba","Link foto "+food.getImg());
 
             Glide.with(AddRecipeActivity.this)
                     .load(food.getImg())
@@ -190,6 +194,7 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
 
     private void deletePreviousImage() {
         StorageReference storageReference = getInstance().getReferenceFromUrl(cImage);
+        Log.d("Coba","Link Image "+storageReference);
         storageReference.delete().addOnSuccessListener(aVoid -> uploadNewImage()).addOnFailureListener(e -> {
             Toast.makeText(AddRecipeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             Toast.makeText(AddRecipeActivity.this, "gagal Hapus gambar", Toast.LENGTH_SHORT).show();
@@ -219,6 +224,7 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
                 Uri uri = uriTask.getResult();
                 assert uri != null;
                 String file = uri.toString();
+                Log.d("Coba","Link Image baru "+file);
                 updateDatabase(file);
 
             }).addOnFailureListener(e -> {
@@ -253,7 +259,6 @@ public class AddRecipeActivity extends AppCompatActivity implements View.OnClick
                     ds.getRef().child("name").setValue(name);
                     ds.getRef().child("recipe").setValue(recipe);
                     ds.getRef().child("img").setValue(s);
-                    ds.getRef().child("search").setValue(search);
                 }
                 progressDialog.dismiss();
                 Toast.makeText(AddRecipeActivity.this, success, Toast.LENGTH_SHORT).show();

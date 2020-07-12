@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swLayout"
@@ -11,17 +11,17 @@
 
 
         <androidx.core.widget.NestedScrollView
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:fillViewport="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary2">
+            android:background="@color/colorPrimary2"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <RelativeLayout
                 android:id="@+id/headerView"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="300dp">
+                android:layout_height="300dp"
+                android:orientation="vertical">
 
                 <View
                     android:layout_width="match_parent"
@@ -32,13 +32,13 @@
                     android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:text="@string/app_name"
-                    android:textStyle="bold"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="20dp"
-                    android:textSize="30sp" />
+                    android:layout_marginRight="16dp"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
 
 
                 <androidx.cardview.widget.CardView
@@ -47,17 +47,17 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/title"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginRight="16dp"
                     app:cardBackgroundColor="@color/colorPrimaryDark1"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp">
 
                     <androidx.appcompat.widget.SearchView
                         android:id="@+id/searchView"
-                        android:iconifiedByDefault="false"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+                        android:iconifiedByDefault="false"
                         app:queryHint="@string/find_recipe">
 
                         <requestFocus />
@@ -71,39 +71,38 @@
                     android:id="@+id/titleCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:textColor="@color/colorPrimaryDark1"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_below="@id/card_search"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="44dp"
-                    android:text="@string/food_category" />
+                    android:layout_marginRight="16dp"
+                    android:text="@string/food_category"
+                    android:textColor="@color/colorPrimaryDark1"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerCategory"
-                    android:scrollbars="none"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_below="@id/titleCategory"
                     android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginBottom="20dp"
-                    />
+                    android:scrollbars="none" />
 
 
                 <TextView
                     android:id="@+id/tv_example"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:textColor="@color/colorPrimaryDark1"
-                    android:textStyle="bold"
+                    android:layout_below="@id/recyclerCategory"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_below="@id/recyclerCategory"
-                    android:text="@string/all_food_recipe" />
+                    android:text="@string/all_food_recipe"
+                    android:textColor="@color/colorPrimaryDark1"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
 
                 <ProgressBar
                     android:id="@+id/shimmerFrameLayout"
@@ -116,13 +115,11 @@
                     android:id="@+id/rv_food_dashboard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_below="@id/tv_example"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="8dp"
-                    android:paddingBottom="56dp"
-                    />
+                    android:layout_marginBottom="20dp" />
 
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
